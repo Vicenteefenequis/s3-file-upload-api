@@ -1,1 +1,1 @@
-# Serveless File Upload API using Amazon S3, Api Gateway & AWS Lambda
+# Serveless File Upload API using Amazon S3, Api Gateway & AWS LambdaP
