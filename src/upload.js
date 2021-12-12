@@ -8,13 +8,14 @@ module.exports.handler = async(event) => {
     console.log(event)
 
     const response = {
-        isBase64Enconded: false,
+        isBase64Encoded: false,
         statusCode: 201,
         body: JSON.stringify({message: "Successfully uploaded file to S3"})
     }
 
     try {
-        const base64File = event.file;
+        const parsedBody = JSON.parse(event.body)
+        const base64File = parsedBody.file;
         const decodedFile = Buffer.from(base64File.replace(/^data:image\/\w+;base64,/, ""),"base64")
 
         const params = {
