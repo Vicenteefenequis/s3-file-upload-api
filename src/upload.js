@@ -9,7 +9,12 @@ module.exports.handler = async(event) => {
     const response = {
         isBase64Encoded: false,
         statusCode: 201,
-        body: JSON.stringify({message: "Successfully uploaded file to S3"})
+        body: JSON.stringify({message: "Successfully uploaded file to S3"}),
+        headers: {
+            "Access-Control-Allow-Headers" : "Content-Type",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
     }
 
     try {
