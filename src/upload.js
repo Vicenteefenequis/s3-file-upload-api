@@ -1,7 +1,6 @@
 const AWS = require("aws-sdk")
 const s3 = new AWS.S3()
 
-
 const BUCKET_NAME = process.env.FILE_UPLOAD_BUCKET_NAME;
 
 module.exports.handler = async(event) => {
@@ -12,9 +11,9 @@ module.exports.handler = async(event) => {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
         },
-        isBase64Encoded: false,
         statusCode: 201,
         body: JSON.stringify({message: "Successfully uploaded file to S3"}),
+        isBase64Encoded: false,
     }
 
     try {
