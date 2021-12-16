@@ -4,16 +4,15 @@ const s3 = new AWS.S3()
 const BUCKET_NAME = process.env.FILE_UPLOAD_BUCKET_NAME;
 
 module.exports.handler = async(event) => {
-
     const response = {
+        isBase64Encoded: false,
+        statusCode: 201,
         headers: {
             "Access-Control-Allow-Headers" : "Content-Type",
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
         },
-        statusCode: 201,
         body: JSON.stringify({message: "Successfully uploaded file to S3"}),
-        isBase64Encoded: false,
     }
 
     try {
@@ -37,6 +36,5 @@ module.exports.handler = async(event) => {
         response.statusCode = 500;
     }
     
-    console.log({response})
     return response;
 }
