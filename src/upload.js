@@ -37,6 +37,7 @@ module.exports.handler = async(event) => {
         response.body = JSON.stringify({message: "File failed to upload",errorMessage: e})
         response.statusCode = 500;
     }
-
+    
+    console.log({response})
     return response;
 }
